@@ -1,0 +1,26 @@
+coleta_dados:
+  description: >
+    1. Pesquisar e coletar informações atualizadas sobre {setor}.
+    2. Identificar os principais players, tendências e estatísticas do {setor}.
+    3. Organizar os dados de forma clara para análise.
+  expected_output: >
+    Documento estruturado contendo dados de mercado sobre {setor}.
+  agent: pesquisador
+
+analise_tendencias:
+  description: >
+    1. Examinar os dados coletados pelo Pesquisador de Mercado.
+    2. Identificar padrões, tendências emergentes e oportunidades no setor {setor}.
+    3. Elaborar uma análise detalhada destacando os principais pontos.
+  expected_output: >
+    Relatório com insights e tendências baseados nos dados do setor {setor}.
+  agent: analista
+
+redacao_relatorio:
+  description: >
+    1. Usar a análise de tendências para criar um relatório detalhado sobre {setor}.
+    2. Garantir que o relatório seja bem estruturado e compreensível.
+    3. Apresentar um resumo executivo e recomendações finais.
+  expected_output: >
+    Relatório de análise de mercado em formato Markdown, pronto para leitura e apresentação.
+  agent: redator

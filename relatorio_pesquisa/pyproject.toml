@@ -1,0 +1,25 @@
+[project]
+name = "relatorio_pesquisa"
+version = "0.1.0"
+description = "relatorio_pesquisa using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai-tools>=0.60.0",
+    "crewai[tools]>=0.157.0,<1.0.0",
+    "python-dotenv>=1.1.1",
+]
+
+[project.scripts]
+relatorio_pesquisa = "relatorio_pesquisa.main:run"
+run_crew = "relatorio_pesquisa.main:run"
+train = "relatorio_pesquisa.main:train"
+replay = "relatorio_pesquisa.main:replay"
+test = "relatorio_pesquisa.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
