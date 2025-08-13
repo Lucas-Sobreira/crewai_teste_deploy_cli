@@ -50,12 +50,12 @@ if __name__ == "__main__":
     # Carrega variáveis do .env
     load_dotenv()
 
-    # Dataframe com os dados do BitCoin
-    df = get_bitcoin_df()
-    print(df)
-
     # Engine de Conexão com o Banco de Dados
     engine = setup_db()
+
+    # Dataframe com os dados do BitCoin
+    df = get_bitcoin_df()
+    print(df)    
 
     # Salva no banco (append)
     df.to_sql("bitcoin", engine, if_exists="append", index=False)

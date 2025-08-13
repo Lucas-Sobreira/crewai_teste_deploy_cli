@@ -2,7 +2,7 @@ from unittest import result
 import requests
 from datetime import datetime
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 import os
 
@@ -21,8 +21,15 @@ def setup_db():
     engine = create_engine(DATABASE_URL)
     return engine
 
-engine = setup_db()
-with engine.connect() as connection:
-    sql_query = "SELECT * FROM public.bitcoin"
-    result = connection.execute(sql_query)
-    print(result)
+def consulta_db(engine):
+    """Executa queries no Banco de Dados"""
+    with engine.connect() as connection:
+        result = connection.execute(text("SELECT * FROM public.bitcoin"))
+        df = pd.DataFrame(result.fetchall(), columns=result.keys())
+        return df
+
+if __name__ == "__main__":
+    load_dotenv()
+    engine=setup_db()
+
+    print(consulta_db(engine))
